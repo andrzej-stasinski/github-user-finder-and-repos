@@ -8,3 +8,6 @@
 #### Information from the app
 * information - user's photo
 * information obtained: name, locations, last update, user link, number of repositories and links to them
+
+#### Link to app
+* [this is the description](https://andrzej-stasinski.github.io/github-user-finder-and-repos/)

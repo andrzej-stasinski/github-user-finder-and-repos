@@ -40,12 +40,11 @@ press.addEventListener('click', function(e) {
     clearContainer();
     clearField();
 
-    console.log(form.field.value);
+    // console.log(form.field.value);
     const user = form.field.value;
     const promise1 = fetch(`https://api.github.com/users/${user}`);
     promise1
         .then(res => {
-            console.log(res);
             if(res.status === 403) {
                 throw Error(res.statusText);
             }
@@ -55,7 +54,6 @@ press.addEventListener('click', function(e) {
             return res.json();
         })
         .then(data => {
-            console.log(data);
             infoImg.innerHTML = '<img src='+ data.avatar_url +' />';
             infoLogin.innerText = 'login: ' + data.login;
             if(data.name !== null) 
@@ -73,11 +71,9 @@ press.addEventListener('click', function(e) {
             errorUser.innerHTML = '<h3 class="errorStyle">User: </h3> ' + err;
         });
 
-    // const repos = fetch(`https://api.github.com/users/${user}/subscriptions`)
     const repos = fetch(`https://api.github.com/users/${user}/repos`)
     repos
         .then(res => {
-            console.log(res);
             if(res.status === 403) {
                 throw  Error(res.statusText);
             }
@@ -88,14 +84,24 @@ press.addEventListener('click', function(e) {
         })
         .then(repoData => {
             console.log(repoData);
+            console.log(repoData.length);
             const numberRepos = repoData.length;
 
             let content = `<h4>Repositories - ${numberRepos}</h4>`;
             repoData.forEach((item, index) => {
                 const linkDoRepo = item.html_url;
-                const has_pages = item.has_pages;
-                console.log(has_pages);                
-                content += `<div>${index+1} ${item.name} - <a href="${linkDoRepo}" target="_blank">link to repo</a> - has pages ${has_pages ? '<img src="tik.png" alt="tik" />' : '<img src="no.png" alt="tik" class="no"/>'}</div>`;
+                const has_pages = item.has_pages; 
+         
+                content += `<div>${index+1} ${item.name} - 
+                    <a href="${linkDoRepo}" 
+                        target="_blank">link to repo</a> - has pages 
+                        ${has_pages 
+                            ? 
+                            `<img src="tik.png" alt="tik" />
+                            <a href="https://${user}.github.io/${item.name}" target="_blank">link</a>` 
+                            : 
+                            '<img src="no.png" alt="tik" class="no"/>'
+                        }</div>`;
             });
             infoRepos.innerHTML = content;
         })
