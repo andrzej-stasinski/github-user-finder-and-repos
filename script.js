@@ -98,7 +98,6 @@ press.addEventListener('click', function(e) {
                         ${has_pages 
                             ? 
                             `<img src="tik.png" alt="tik" />
-                            <a href="https://www.google.pl/" target="_balnk">sss</a>
                             <a href="https://${user}.github.io/${item.name}" target="_blank">link</a>` 
                             : 
                             '<img src="no.png" alt="tik" class="no"/>'
