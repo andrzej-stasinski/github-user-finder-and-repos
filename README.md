@@ -12,4 +12,4 @@
 #### Link to app
 <!-- * <a href="https://andrzej-stasinski.github.io/github-user-finder-and-repos/" target="_blank_">link to app</a> -->
 
-* [this is link to app](https://andrzej-stasinski.github.io/github-user-finder-and-repos/)
+* [link to app](https://andrzej-stasinski.github.io/github-user-finder-and-repos/)
