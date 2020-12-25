@@ -97,7 +97,7 @@ press.addEventListener('click', function(e) {
                         target="_blank">link to repo</a> - has pages 
                         ${has_pages 
                             ? 
-                            `<img src="tik.png" alt="tik" />
+                            `<img src="tik.png" alt="tik" />  
                             <a href="https://${user}.github.io/${item.name}" target="_blank">link</a>` 
                             : 
                             '<img src="no.png" alt="tik" class="no"/>'
