@@ -73,6 +73,7 @@ press.addEventListener('click', function(e) {
             errorUser.innerHTML = '<h3 class="errorStyle">User: </h3> ' + err;
         });
 
+    // const repos = fetch(`https://api.github.com/users/${user}/subscriptions`)
     const repos = fetch(`https://api.github.com/users/${user}/repos`)
     repos
         .then(res => {
@@ -90,11 +91,11 @@ press.addEventListener('click', function(e) {
             const numberRepos = repoData.length;
 
             let content = `<h4>Repositories - ${numberRepos}</h4>`;
-            repoData.forEach(item => {
+            repoData.forEach((item, index) => {
                 const linkDoRepo = item.html_url;
                 const has_pages = item.has_pages;
                 console.log(has_pages);                
-                content += `<div>${item.name} - <a href="${linkDoRepo}" target="_blank">link to repo</a> - has pages ${has_pages ? '<img src="tik.png" alt="tik" />' : '<img src="no.png" alt="tik" class="no"/>'}</div>`;
+                content += `<div>${index+1} ${item.name} - <a href="${linkDoRepo}" target="_blank">link to repo</a> - has pages ${has_pages ? '<img src="tik.png" alt="tik" />' : '<img src="no.png" alt="tik" class="no"/>'}</div>`;
             });
             infoRepos.innerHTML = content;
         })
